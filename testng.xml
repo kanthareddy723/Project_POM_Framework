@@ -10,11 +10,16 @@
 </listeners>
 
   <test  name="Test">
-  
+  <!-- -Enter Your test cases -->
   <classes>
   
-  <class name="com.TestCases.Tc_01_ValidateLoginCredentials"></class>
-  
+  <!-- <class name="com.TestCases.Tc_01_Login"></class> -->
+  <!-- <class name="com.TestCases.Tc_002_Admin_AddCustomer"></class> -->
+  <!-- <class name="com.TestCases.TC_003_Admin_Logout"></class> -->
+  <!-- <class name="com.TestCases.Tc_004_Changepassword"></class> -->
+   <!-- <class name="com.TestCases.Tc_005_delete></class> -->
+   <class name="com.TestCases.TC_01_Automationpractise"></class>
+ 
   </classes>
   
   </test> <!-- Test -->

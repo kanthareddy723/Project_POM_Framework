@@ -11,98 +11,68 @@ public class Login extends GenericFunctions{
 	// ****************************  Login Panel Section Object  *********************************
 	
 	
-//User Name	
-	@FindBy(how=How.ID,using="txtUsername")
+//Adminlink
+	@FindBy(how=How.XPATH,using="//*[text()='Admin ']")
 	
-		public static WebElement Username;
+		public static WebElement lnk_admin_Admin;
+
 	
+//Usernme
+		@FindBy(how=How.XPATH, using ="//*[@name='uname']")
+		
+			public static WebElement  edi_admin_Username;
+			
 //Password	
-	@FindBy(how=How.ID,using="txtPassword")
+	@FindBy(how=How.XPATH,using="//*[@name='pwd']")
 	
-		public static WebElement Password;
+		public static WebElement edi_admin_password;
 	
 	
 //Login Button
-	@FindBy(how=How.ID,using="btnLogin")
+	@FindBy(how=How.XPATH,using="//*[@name='submitBtn']")
 		
-		public static WebElement Login;	
+		public static WebElement btn_admin_Login;	
 	
 	
 /*************************************************
 	
 	
-	Function Name:Login
+	Function Name:Admin_Login
 	
-	Purpose:-This Function is used to login into the HRM Application when ever the user is required
+	Purpose:-This Function is used to login into the Bank Application as a admin when ever the user is required
 	
-	Input Parameters:-NA
+	Input Parameters:- NA
 	
-	Output Parameters:-This method will return a boolean value stating wheter the application is launched or not
+	Output Parameters:-This method will return a boolean value stating whether user is logined or not
 	
-	Author:-Veera Prathap Malepati
+	Author:- K.Umakanth
 	
-	Creationn date:-12/30/2017
+	Creation date:-04/05/2018(dd/mm/yyyy)
 	
 	
 	**************************************************/	
 	
 	
-	public static boolean Login()
+	public static boolean Admin_Login()
 	{
 		boolean status=true;
 		
-		try
-		{
+//Click on Admin link
+			status = hoverAndClick(lnk_admin_Admin);
+
+//Enter Username
+			
 			String username=getCommontestdata("Username");
-			Username.click();
-			Username.clear();
-			Username.sendKeys(username);
+			status = setdata(edi_admin_Username, username);
 			
-		}
-		
-		catch(Exception e)
-		{
-			status=false;
-		}
-		
-		
-		//Based on the Username status Enter password
-		
-		if(status)
-		{
-			
-			try
-			{
-				String password=getCommontestdata("Password");
-				Password.click();
-				Password.clear();
-				Password.sendKeys(password);
+//Enter password
+			String password=getCommontestdata("Password");
+			status = setdata(edi_admin_password, password);
 				
-			}
+//Based on the Password status Click on the Login Button
+			status = hoverAndClick(btn_admin_Login);
 			
-			catch(Exception e)
-			{
-				status=false;
-			}
-			
-			//Based on the Password status Click on the Login Button
-			
-			try
-			{
-				Login.click();
-								
-			}
-			
-			catch(Exception e)
-			{
-				status=false;
-			}
-			
-			
-			
-		}
-		
-		
+		System.out.println("Login Sucuessfully done");
 		
 		return status;
 		

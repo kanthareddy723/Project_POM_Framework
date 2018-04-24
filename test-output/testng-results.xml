@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="21482" started-at="2018-03-18T15:37:58Z" finished-at="2018-03-18T15:38:20Z">
+  <suite name="Suite" duration-ms="15114" started-at="2018-04-23T05:18:06Z" finished-at="2018-04-23T05:18:21Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="21482" started-at="2018-03-18T15:37:58Z" finished-at="2018-03-18T15:38:20Z">
-      <class name="com.TestCases.Tc_01_ValidateLoginCredentials">
-        <test-method status="PASS" signature="Tc_01_ValidateLoginCredentials()[pri:0, instance:com.TestCases.Tc_01_ValidateLoginCredentials@26653222]" name="Tc_01_ValidateLoginCredentials" duration-ms="20193" started-at="2018-03-18T21:07:59Z" finished-at="2018-03-18T21:08:19Z">
+    <test name="Test" duration-ms="15114" started-at="2018-04-23T05:18:06Z" finished-at="2018-04-23T05:18:21Z">
+      <class name="com.TestCases.TC_01_Automationpractise">
+        <test-method status="PASS" signature="ap()[pri:0, instance:com.TestCases.TC_01_Automationpractise@5e5792a0]" name="ap" duration-ms="14156" started-at="2018-04-23T10:48:07Z" finished-at="2018-04-23T10:48:21Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Tc_01_ValidateLoginCredentials -->
-      </class> <!-- com.TestCases.Tc_01_ValidateLoginCredentials -->
+        </test-method> <!-- ap -->
+      </class> <!-- com.TestCases.TC_01_Automationpractise -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -2,6 +2,7 @@ package com.GenericFunctions;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +11,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.codoid.products.exception.FilloException;
@@ -21,7 +23,6 @@ public class GenericFunctions extends TestNGListeners {
 	public static  WebDriver driver;
 
 	
-	
 
 	/*************************************************
 	
@@ -32,7 +33,7 @@ public class GenericFunctions extends TestNGListeners {
 	
 	Input Parameters:-User must send in which browser does the application need to be launch
 	
-	Output Parameters:-This method will return a boolean value stating wheter the user logged into in the system
+	Output Parameters:-This method will return a boolean value stating whether the user logged into in the system
 	
 	Author:-Veera Prathap Malepati
 	
@@ -59,7 +60,9 @@ public class GenericFunctions extends TestNGListeners {
 			
 			driver= new FirefoxDriver();
 			
-			String url=getCommontestdata("Url");
+			//String url=getCommontestdata("Url");
+			
+			String url = getdata("CommonTestdata", "Url", 1);
 			
 			System.out.println(url);
 			
@@ -152,6 +155,25 @@ public class GenericFunctions extends TestNGListeners {
 		
 	}
 	
+/*************************************************
+	
+	
+	Function Name:getdata
+	
+	Purpose:-This Function is used to Get the data from Excel when ever the user is required
+	
+	Input Parameters:- Excel
+	
+	Output Parameters:-This method will give a String output
+	
+	Author:-Veera Prathap Malepati
+	
+	Creationn date:-12/30/2017
+	
+	
+	**************************************************/
+	
+	
 	
 	public static String getdata(String sheetname,String userdata,int itr)
 	{
@@ -174,8 +196,7 @@ public class GenericFunctions extends TestNGListeners {
 				
 				fetcheddata=recordset.getField(userdata);
 				break;
-				
-				
+
 				}
 				 
 				recordset.close();
@@ -191,13 +212,36 @@ public class GenericFunctions extends TestNGListeners {
 		
 	}
 	
-	public static void waitForElement(WebElement element)
-	{
 	
+/*************************************************
+	
+	
+	Function Name:waitForElement
+	
+	Purpose:-This Function is used to Wait for the element to procede further
+	
+	Input Parameters:- Webelement
+	
+	Output Parameters:-This method will return a boolean value stating whether the user logged into in the system
+	
+	Author:-Veera Prathap Malepati
+	
+	Creation date:-12/30/2017
+	
+	
+	**************************************************/
+	
+	
+	
+	
+	public static boolean waitForElement(WebElement element)
+	{
+	boolean status=true;
 		for(int i=1;i<=10;i++)
 		{
 		try
 		{
+			status=true;
 			System.out.println("Wait is executing");
 			Actions acc=new Actions(driver);
 			acc.moveToElement(element).build().perform();
@@ -208,6 +252,7 @@ public class GenericFunctions extends TestNGListeners {
 		}
 		catch(Exception e)
 		{
+			status=false;
 			try {
 				Thread.sleep(1000);
 				
@@ -218,9 +263,26 @@ public class GenericFunctions extends TestNGListeners {
 			
 		}
 		}	
-		
+	return status;	
 	}
 	
+/*************************************************
+	
+	
+	Function Name:hoverAndClick
+	
+	Purpose:-This Function is used to Mousehover and click
+	
+	Input Parameters:- Webelement
+	
+	Output Parameters:-This method will return a boolean value stating whether the user logged into in the system
+	
+	Author:-Veera Prathap Malepati
+	
+	Creation date:-12/30/2017
+	
+	
+	**************************************************/
 	
 	public static boolean hoverAndClick(WebElement element)
 	{
@@ -248,6 +310,27 @@ public class GenericFunctions extends TestNGListeners {
 	return status;
 	}	
 	
+/*************************************************
+	
+	
+	Function Name:forceClick
+	
+	Purpose:-This Function is used to Force click element
+	
+	Input Parameters:- Webelement
+	
+	Output Parameters:- 
+	
+	Author:-Veera Prathap Malepati
+	
+	Creation date:-12/30/2017
+	
+	
+	**************************************************/
+	
+	
+	
+	
 	public static void forceClick(WebElement element)
 	{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
@@ -255,5 +338,174 @@ public class GenericFunctions extends TestNGListeners {
 		js.executeScript("arguments[0].click();", element);
 		
 	}
+	
+	
+/*************************************************
+	
+	
+	Function Name: setdata
+	
+	Purpose:-This Function is used to Set the data from excel 
+	
+	Input Parameters:- Excel Sheet
+	
+	Output Parameters:-This method will return a boolean value whether the data is entered or not 
+	
+	Author:-K.Umakanth
+	
+	Creation date:- 04/05/2018(dd/mm/yyyy)
+	
+	
+	**************************************************/
+	
+	
+	public static boolean setdata(WebElement element, String data)
+	{
+	boolean status=true;
+		
+		try
+		{
+			waitForElement(element);
+			element.click();
+			element.clear();
+			element.sendKeys(data);	
+			
+		}
+		catch(Exception e)
+		{
+			
+			status=false;
+		
+		}	
+		
+	
+	
+	return status;
+	}	
+	
+
+/*************************************************
+	
+	
+	Function Name: Selectlistbox
+	
+	Purpose:-This Function is used to Mousehover and click
+	
+	Input Parameters:- Webelement
+	
+	Output Parameters:-This method will return a boolean value stating whether the user logged into in the system
+	
+	Author:-Veera Prathap Malepati
+	
+	Creation date:-12/30/2017
+	
+	
+	**************************************************/
+	
+	public static boolean Selectlistbox(WebElement element,String data)
+	{
+	boolean status=true;
+		
+		try
+		{
+			waitForElement(element);
+			Select slct = new Select(element);
+			slct.selectByVisibleText(data);
+	
+		}
+		catch(Exception e)
+		{
+			
+			status=false;
+		
+		}	
+		
+	return status;
+	}	
+	
+/*************************************************
+ * }
+ */
+	
+
+/*************************************************
+	
+	
+	Function Name: admin_logout
+	
+	Purpose:-This Function is used to Add Staff details 
+	
+	Input Parameters:- 
+	
+	Output Parameters:-This method will return a boolean value whether the data is entered or not 
+	
+	Author:-K.Umakanth
+	
+	Creation date:- 04/05/2018(dd/mm/yyyy)
+	
+	
+	**************************************************/
+	
+	public static boolean admin_logout(WebElement elemt)
+	{
+		boolean status=true;
+		
+		try
+		{
+			status = hoverAndClick(elemt);
+		}
+		catch(Exception e)
+		{
+			
+			status=false;
+		
+		}	
+		
+	return status;
+		
+			}
+
+//
+
+/*************************************************
+	
+	
+	Function Name: selectradio
+	
+	Purpose:-This method is used to Select radio button for editing deleting data
+	
+	Input Parameters:- 
+	
+	Output Parameters:-This method will return a boolean value whether the data is entered or not 
+	
+	Author:-K.Umakanth
+	
+	Creation date:- 04/05/2018(dd/mm/yyyy)
+	
+	
+	**************************************************/
+public static boolean selectradio(String name, String email)
+{
+	boolean status = true;
+	try
+	{
+		//staff
+		//driver.findElement(By.xpath("//*[text()='"+name+"']/following-sibling::td[8][text()='"+email+"']/preceding-sibling::td[9]/input")).click();;	
+		
+		//customer
+		driver.findElement(By.xpath("//*[text()='"+name+"']/following-sibling::td[7][text()='"+email+"']/preceding-sibling::td[8]/input")).click();
+	
+	}						
+	catch(Exception e)
+	{
+		status = false;
+	}
+	return status;
+}
+
+
+
+
+
 
 }
