@@ -1,5 +1,6 @@
 package com.ScreenFunctions;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -32,7 +33,7 @@ public class Automation_Practise extends GenericFunctions
 		
 		
 		
-		//*[@id='homefeatured']/li[4]/div/div/div/a/following-sibling::div/following-sibling::div/span
+		
 		
 		
 		
@@ -73,6 +74,8 @@ public class Automation_Practise extends GenericFunctions
 		
 		System.out.println("Haiii it is :"+ txt_drstype.getText());
 		String cost1 = txt_drscost.getText();
+		
+		System.out.println("Cost :$"+driver.findElement(By.xpath("//ul[@id='homefeatured']/li[4]/div/div[2]/div/span")).getText());
 		Thread.sleep(2000);
 		System.out.println("Cost is :"+cost1);
 		

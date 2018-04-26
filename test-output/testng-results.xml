@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="15114" started-at="2018-04-23T05:18:06Z" finished-at="2018-04-23T05:18:21Z">
+  <suite name="Suite" duration-ms="15696" started-at="2018-04-26T05:02:58Z" finished-at="2018-04-26T05:03:14Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="15114" started-at="2018-04-23T05:18:06Z" finished-at="2018-04-23T05:18:21Z">
+    <test name="Test" duration-ms="15696" started-at="2018-04-26T05:02:58Z" finished-at="2018-04-26T05:03:14Z">
       <class name="com.TestCases.TC_01_Automationpractise">
-        <test-method status="PASS" signature="ap()[pri:0, instance:com.TestCases.TC_01_Automationpractise@5e5792a0]" name="ap" duration-ms="14156" started-at="2018-04-23T10:48:07Z" finished-at="2018-04-23T10:48:21Z">
+        <test-method status="PASS" signature="ap()[pri:0, instance:com.TestCases.TC_01_Automationpractise@5e5792a0]" name="ap" duration-ms="14730" started-at="2018-04-26T10:32:59Z" finished-at="2018-04-26T10:33:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ap -->
